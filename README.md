@@ -11,7 +11,7 @@ Requirements for compiling: gcc
 
 		$ git clone https://github.com/wtsi-hpag/easyChain.git
 		$ cd easyChain 
-		$ ./install.sh
+		$ bash install.sh
 		
 If everything compiled saccessfully you must see the final comment: 
 		"Congrats: installation successful!"		
