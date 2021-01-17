@@ -1,0 +1,13 @@
++++ Cleaning All ... 
++++ Compiling All ... 
+gcc -O2  -c easyChain_fasta.c -o easyChain_fasta.o
+gcc -O2  -c easyChain_shred.c -o easyChain_shred.o
+gcc -O2  -c easyChain.c -o easyChain.o
+easyChain.c: In function ‘main’:
+easyChain.c:279:7: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+       chdir(tmpdir);
+       ^~~~~~~~~~~~~
+gcc -O2  -c fast.c -o fast.o
+for exe in easyChain_fasta easyChain_shred easyChain;  do gcc -O2 -o $exe $exe.o fast.o; cp $exe easyChain-bin/.; done
++++ Cleaning Up ... 
+All Done 
