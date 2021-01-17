@@ -9,7 +9,7 @@ To perform whole genome alignment between target assembly_1.fasta (GRCh37-assemb
 ### Download and Compile:
 Requirements for compiling: gcc
 
-		$ git clone https://github.com/SangerHpag/easyChain.git
+		$ git clone https://github.com/wtsi-hpag/easyChain.git
 		$ cd easyChain 
 		$ ./install.sh
 		
