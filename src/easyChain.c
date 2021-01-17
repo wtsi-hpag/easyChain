@@ -240,7 +240,7 @@ int main(int argc, char **argv)
     }
 
     memset(syscmd,'\0',2000);
-    sprintf(syscmd,"%s/easyChain_shred -length %d target.fasta target.shred > try.out",bindir,shred_len);
+    sprintf(syscmd,"%s/easyChain_shred -rlength %d target.fasta target.shred > try.out",bindir,shred_len);
     if(system(syscmd) == -1)
     {
 //      printf("System command error:\n);
