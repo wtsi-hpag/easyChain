@@ -62,7 +62,7 @@ static int len_block=2500;
 static int len_edges=50000;
 static int len_matrx=2000;
 static int min_edge = 5;
-static int uplinks = 50;
+static int file_tag = 2;
 static int run_align = 1;
 static int min_len = 10000000;
 
@@ -102,9 +102,10 @@ int main(int argc, char **argv)
 
     if(argc < 2)
     {
-         printf("Usage: %s -nodes 30 -shred 20000 <target_assembly.fasta> <refere_assembly.fasta> <shred-align.out> \n",argv[0]);
+         printf("Usage: %s -nodes 30 -shred 20000 -output 2 <target_assembly.fasta> <refere_assembly.fasta> <shred-align.out> \n",argv[0]);
          printf("       nodes  (30)    - number of CPUs requested\n");
          printf("       shred  (20000) - length of shredded fragments\n");
+         printf("       output (2)     - output file (1) alignment only; (2) standard chain file\n");
          exit(1);
     }
 
@@ -127,9 +128,9 @@ int main(int argc, char **argv)
          sscanf(argv[++i],"%d",&n_debug);
          args=args+2;
        }
-       else if(!strcmp(argv[i],"-align"))
+       else if(!strcmp(argv[i],"-output"))
        {
-         sscanf(argv[++i],"%s",toolname);
+         sscanf(argv[++i],"%d",&file_tag);
          args=args+2;
        }
        else if(!strcmp(argv[i],"-nodes"))
@@ -257,15 +258,37 @@ int main(int argc, char **argv)
     sprintf(syscmd,"%s/smalt map -f ssaha -m %d -n %d -a -o align.out -O hash_refere target.shred > try.out",bindir,1000,n_nodes);
     if(system(syscmd) == -1)
     {
-//  printf("System command error:\n);
+//    printf("System command error:\n);
     }
 
-    memset(syscmd,'\0',2000);
-    sprintf(syscmd,"mv align.out %s",file_easyChain);
-    if(system(syscmd) == -1)
+    if(file_tag == 1)
     {
+      memset(syscmd,'\0',2000);
+      sprintf(syscmd,"mv align.out %s",file_easyChain);
+      if(system(syscmd) == -1)
+      {
 //      printf("System command error:\n);
+      }
     }
+    else if(file_tag == 2)
+    {
+      memset(syscmd,'\0',2000);
+      sprintf(syscmd,"%s/shred2chain align.out shredOut.chain > try.out",bindir);
+      if(system(syscmd) == -1)
+      {
+//    printf("System command error:\n);
+      }
+
+      memset(syscmd,'\0',2000);
+      sprintf(syscmd,"mv shredOut.chain %s",file_easyChain);
+      if(system(syscmd) == -1)
+      {
+//      printf("System command error:\n");
+      }
+    }
+    else
+      printf("Wrong file input!\n");
+
 
     if(n_debug == 0)
     {
