@@ -42,7 +42,8 @@ The genome aligner BWA (http://bio-bwa.sourceforge.net) and SMALT (http://www.sa
 
         https://github.com/liu-yongji/shred2chain
 
-        It was written in C++ and some libraries used might be difficut to compile. In this pipeline, I used the pre-complied binary code. 
+        It was written in C++ and some libraries used might be difficut to compile. 
+        In this pipeline, I used the pre-complied binary code. 
 
      2. Please use the fullpath when running easyChain
         /full/path/to/easyChain/src/easyChain
