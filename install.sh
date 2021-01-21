@@ -109,6 +109,8 @@ else
     rm -rf $projdir/src/pigz/
 fi
 
+    chmod +x $bindir/shred2chain
+
 ###### Compile easyChain sources ######
 
 echo; echo "Compiling easyChain sources"
