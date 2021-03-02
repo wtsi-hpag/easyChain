@@ -79,7 +79,8 @@ Before using this tool, you need to have the VCF files ready:
    	output_result         - The folder with the output results                        \
 
 #### Note 
- 
+
+You need to create a directory for output results. If not exists, the code will generate a temp one \ 
 Five files will be generated after processing for each input VCF file, they are:     \
 
  	[1]  xxx_SNP.bed:                   - The bed file extracted from xxx.vcf with tag "VT=SNP".   \
