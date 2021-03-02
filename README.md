@@ -52,6 +52,7 @@ The genome aligner BWA (http://bio-bwa.sourceforge.net) and SMALT (http://www.sa
 ### checkError
 We provide a pipeline to check conversion errors made by different chain files
 Before using this tool, you need to have the VCF files ready:
+
      1. Download and unzip all the VCF files from the 1000 Genome project for GRCH37;( chr1~22，X,Y)
         http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/
         make a directory grch37_vcf and copy all the unzipped GRCh37 VCF files there
@@ -68,22 +69,24 @@ Before using this tool, you need to have the VCF files ready:
         Self generated VCFs without annotation will not work
 
 #### USAGE 
-[Usage]: ./checkError [VCF_Files_folder] [reference_VCF_Files_folder] [chain_file] [output_folder] 
-[Example]: ./checkError grch37_vcf grch38_vcf hg19ToHg38.over.chain output_result 
 
-   grch37_vcf            - The folder which contains some or all the VCF files for GRCh37
-   grch38_vcf            - The folder which contains ALL the VCF files for GRCh38
-   hg19ToHg38.over.chain - The chain file selected
-   output_result         - The folder with the output results 
+	[Usage]: ./checkError [VCF_Files_folder] [reference_VCF_Files_folder] [chain_file] [output_folder] \ 
+	[Example]: ./checkError grch37_vcf grch38_vcf hg19ToHg38.over.chain output_result \ 
 
-#### Note  
-Five files will be generated after processing for each input VCF file, they are:
+   grch37_vcf            - The folder which contains some or all the VCF files for GRCh37 \
+   grch38_vcf            - The folder which contains ALL the VCF files for GRCh38    \
+   hg19ToHg38.over.chain - The chain file selected                                   \
+   output_result         - The folder with the output results                        \
 
- [1]  xxx_SNP.bed:                   - The bed file extracted from xxx.vcf with tag "VT=SNP".
- [2]  xxx_SNP_genegos.bed:           - The file after coordinate conversion.
- [3]  xxx_SNP_genegos.unmap:         - The content that could not be converted.
- [4]  xxx_SNP_genegos_error.dat:     - The file contains all the error sites.
- [5]  xxx_SNP_genegos_error_db.txt:  - The file contains all error sites in import databases.
+#### Note 
+ 
+Five files will be generated after processing for each input VCF file, they are:     \
+
+ [1]  xxx_SNP.bed:                   - The bed file extracted from xxx.vcf with tag "VT=SNP".   \
+ [2]  xxx_SNP_genegos.bed:           - The file after coordinate conversion.                    \
+ [3]  xxx_SNP_genegos.unmap:         - The content that could not be converted.                 \
+ [4]  xxx_SNP_genegos_error.dat:     - The file contains all the error sites.                   \
+ [5]  xxx_SNP_genegos_error_db.txt:  - The file contains all error sites in import databases.   \
 
 #### Further information
 
