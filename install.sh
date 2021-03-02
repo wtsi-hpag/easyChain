@@ -43,16 +43,15 @@ else
     rm -rf $projdir/src/bwa/
 fi
 
-
 ##### Download and install SMALT ######
 echo; echo "Downloading and installing Smalt"
 if [[ ! -s $bindir/smalt ]]; then
    
     if [[ ! -d $projdir/src/smalt-0.7.4 ]]; then
-	cd $projdir/src/
-	wget ftp://ftp.sanger.ac.uk/pub/resources/software/smalt/smalt-0.7.4.tgz &> $projdir/src/log/smalt_wget.log
-	tar -xvzf smalt-0.7.4.tgz &> $projdir/src/log/smalt_untar.log
-	rm -f smalt-0.7.4.tgz
+        cd $projdir/src/
+        wget ftp://ftp.sanger.ac.uk/pub/resources/software/smalt/smalt-0.7.4.tgz &> $projdir/src/log/smalt_wget.log
+        tar -xvzf smalt-0.7.4.tgz &> $projdir/src/log/smalt_untar.log
+        rm -f smalt-0.7.4.tgz
     fi
 
     cp $projdir/src/smalt-0.7.4/smalt_x86_64 $bindir/smalt
@@ -63,7 +62,7 @@ if  [[ ! -s $bindir/smalt ]]; then
     echo "   Check if smalt was downloaded properly:" $projdir/src/log/smalt_wget.log 
     echo "   Check if the folder was uncompressed properly:" $projdir/src/log/smalt_untar.log
 
-    # Cleaning up	
+    # Cleaning up       
     rm -rf $projdir/src/smalt-0.7.4/ $bindir/smalt
 
     errs=$(($errs+1))
@@ -73,41 +72,11 @@ else
 fi
 
 
-##### Download and install pigz ######
-
-echo "Downloading and installing pigz"
-if [[ ! -s $bindir/pigz ]]; then
-
-    if [[ ! -d $projdir/src/pigz ]]; then
+##### Download disease data file IMDB.tar.gz ######
 	cd $projdir/src/
-        wget -r -np -nd https://zlib.net/pigz/pigz-2.4.tar.gz &> $projdir/src/log/pigz_wget.log
-        tar -xvzf pigz-2.4.tar.gz &> $projdir/src/log/pigz_untar.log
-        rm -f pigz-2.4.tar.gz
-    fi
-
-    if [[ ! -s $projdir/src/pigz/pigz ]]; then
-	cd $projdir/src/pigz-2.4
-	make &> $projdir/src/log/pigz_installation.log
-    fi
-
-    cp pigz $bindir
-fi
-
-if  [[ ! -s $bindir/pigz ]]; then
-    echo " !! Error: pigz not installed properly!"; 
-    echo "   Please check the log files:" 
-    echo "   Check if bwa was downloaded properly:" $projdir/src/log/pigz_cloning.log 
-    echo "   Check if the bwa was compiled properly:" $projdir/src/log/pigz_installation.log
-
-    # Cleaning up
-    cd $projdir/src
-    rm -rf $projdir/src/pigz/pigz $bindir/pigz 
-    
-    errs=$(($errs+1))
-else
-    echo " pigz succesfully installed!"
-    rm -rf $projdir/src/pigz/
-fi
+	wget ftp://ftp.sanger.ac.uk/pub/users/zn1/easyChain/IMDB.tar.gz &> $projdir/src/log/imdb_wget.log
+	tar -xvzf IMDB.tar.gz &> $projdir/src/log/imdb_untar.log
+	rm -f IMDB.tar.gz 
 
     chmod +x $bindir/shred2chain
 
