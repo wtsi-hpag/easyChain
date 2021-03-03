@@ -62,8 +62,8 @@ Before using this tool, you need to have the VCF files ready:
         make a directory grch38_vcf and copy all the unzipped GRCh38 VCF files there
 
      3. Disease databases such as ClinVar, Gwas_catlog, hgmd and omim
-        We have included these 4 datasets in the pipeline and they will be ready after installation! 
-        No action is needed for users
+        We have included these 4 datasets in the pipeline and they will be ready after installation \ 
+        No action is needed for users but copy IMDB to the working directory if you are not working on src  \ 
      
      4. VCF files have to be the annotated files with RS numbers assigned to each called varrant
         Self generated VCFs without annotation will not work
@@ -89,9 +89,15 @@ Five files will be generated after processing for each input VCF file, they are:
  	[4]  xxx_SNP_genegos_error.dat:     - The file contains all the error sites.                   \
  	[5]  xxx_SNP_genegos_error_db.txt:  - The file contains all error sites in import databases.   \
 
+Disease databases
+
+	We have collected data from ClinVar, Gwas_catlog, hgmd and omim. After installation of the tool \
+	there is a directory of IMDB under src. When running the pipeline, the IMDB has to be in        \
+	the working directory 
+
 #### Further information
 
-     1. The checkError pipeline is developed by Yongji Liu in Beijing, China, see
+     1. The checkError tool is developed by Yongji Liu in Beijing, China, see
         https://github.com/liu-yongji/checkbederror
 
      2. Zemin Ning integrated all the codes and disease databases here for better download and installation. 
