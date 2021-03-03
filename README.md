@@ -63,9 +63,10 @@ Before using this tool, you need to have the VCF files ready:
 
      3. Disease databases such as ClinVar, Gwas_catlog, hgmd and omim
         We have included these 4 datasets in the pipeline and they will be ready after installation \ 
-        No action is needed for users but copy IMDB to the working directory if you are not working on src  \ 
+        No action is needed for users if you are working on /full/path/to/easyChain/src/            \
+        Or copy IMDB to the working directory if you are not working on src                         \ 
      
-     4. VCF files have to be the annotated files with RS numbers assigned to each called varrant
+     4. VCF files have to be the annotated files with RS numbers assigned to each called variant
         Self generated VCFs without annotation will not work
 
 #### USAGE 
@@ -92,8 +93,8 @@ Five files will be generated after processing for each input VCF file, they are:
 Disease databases
 
 	We have collected data from ClinVar, Gwas_catlog, hgmd and omim. After installation of the tool \
-	there is a directory of IMDB under src. When running the pipeline, the IMDB has to be in        \
-	the working directory 
+	there is a directory of IMDB under /full/path/to/easyChain/src/. When running the pipeline      \
+        the IMDB has to be in the working directory   
 
 #### Further information
 
