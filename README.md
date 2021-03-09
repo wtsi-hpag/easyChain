@@ -90,11 +90,18 @@ Five files will be generated after processing for each input VCF file, they are:
  	[4]  xxx_SNP_genegos_error.dat:     - The file contains all the error sites.                   \
  	[5]  xxx_SNP_genegos_error_db.txt:  - The file contains all error sites in import databases.   \
 
-Disease databases
+#### Disease databases and error validation
 
-	We have collected data from ClinVar, Gwas_catlog, hgmd and omim. After installation of the tool \
-	there is a directory of IMDB under /full/path/to/easyChain/src/. When running the pipeline      \
-        the IMDB has to be in the working directory   
+We have collected data from ClinVar, Gwas_catlog, hgmd and omim. After installation of the tool \
+there is a directory of IMDB under /full/path/to/easyChain/src/. When running the pipeline      \
+the IMDB needs to be in the working directory. Alternatively, download the IMDB fie from   
+
+	ftp://ftp.sanger.ac.uk/pub/users/zn1/easyChain/IMDB.tar.gz
+
+Error validation is very important for selecting a suitable chain file for use. With the 1000genomes data \
+the results from Ensembl, UCSC, Genegos and shredOut chain files can be downloaded from
+ 
+	ftp://ftp.sanger.ac.uk/pub/users/zn1/easyChain/output.tar.gz
 
 #### Further information
 
